@@ -24,17 +24,31 @@ logInInputPassword.setAttribute("class", "logInDiv-item");
 logInButton.innerHTML = "Logga in";
 logInButton.setAttribute("class", "logInDiv-item");
 
-//Lägger till en eventlyssnare till knappen som inväntar att användaren klickar på den
-logInButton.addEventListener("click", function(){
-    if(logInInputName.value === namn && logInInputPassword.value === lösenord){
-        logInDiv.classList.add("logInDivHide");
-        /***************************************************************************************** */
-    } 
-    
-});
-
 //Lägger in items i logInDiv:en
 logInDiv.appendChild(logInH2);
 logInDiv.appendChild(logInInputName);
 logInDiv.appendChild(logInInputPassword);
 logInDiv.appendChild(logInButton);
+
+/**************************************************** */
+const welcomeDiv = document.createElement("div");
+welcomeDiv.setAttribute("class", "welcomeDiv");
+welcomeDiv.classList.add("welcomeDivHide");
+document.body.insertBefore(welcomeDiv, rulesDiv);
+
+const welcomeP = document.createElement("p");
+welcomeP.innerHTML = "Välkommen, du är nu inloggad";
+
+welcomeDiv.appendChild(welcomeP);
+
+
+
+//Lägger till en eventlyssnare till knappen som inväntar att användaren klickar på den 
+logInButton.addEventListener("click", function(){
+    if(logInInputName.value === namn && logInInputPassword.value === lösenord){
+        logInDiv.classList.add("logInDivHide");
+        welcomeDiv.classList.remove("welcomeDivHide");
+        localStorage.setItem("userName", namn);
+        localStorage.setItem("password", lösenord);
+    }  
+});
