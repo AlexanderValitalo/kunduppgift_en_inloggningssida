@@ -1,0 +1,48 @@
+body {
+    background-image: url("./dog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.name-header,.rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.logInDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin: 50px;
+}
+
+.logInDivHide {
+    display: none;
+}
+
+.logInDiv-item {
+    margin: 8px;
+}
+
+.rules {
+    background-color: lightgreen;
+}
+
+#h2-rules,#p-rules {
+    margin: 8px;
+}
+
+h1,#p-header {
+    margin: 2px;
+    text-align: center;
+}
+
