@@ -1,13 +1,13 @@
 /*************************Inloggningsuppgifter*************************/
-const namn = "Bella"; //Skapar string med användarnamnet
-const lösenord = "qwe123"; //Skapar string med lösenordet
+const namn = "Bella"; //Skapar en konstant stringvariabel med användarnamnet
+const lösenord = "qwe123"; //Skapar en konstant stringvariabel med lösenordet
 /**********************************************************************/
 
 /*************************Variabel till sista diven för placering av andra divs*************************/
 const rulesDiv = document.getElementById("rules");  
 /*******************************************************************************************************/
 
-/********************************Inloggningsdiven********************************/
+/*************************************************Inloggningsdiven*************************************************/
 const logInDiv = document.createElement("div"); //Skapar åtkomst till diven som inloggninselementen ska ligga i
 logInDiv.setAttribute("class", "logInDiv"); //Ger denna div klassen logInDiv
 document.body.insertBefore(logInDiv, rulesDiv); //Lägger in den nya diven mellan de 2 andra
@@ -34,7 +34,7 @@ logInDiv.appendChild(logInH2);
 logInDiv.appendChild(logInInputName);
 logInDiv.appendChild(logInInputPassword);
 logInDiv.appendChild(logInButton);
-/*******************************************************************************/
+/*******************************************************************************************************************/
 
 /*************************Välkomstdiven*************************/
 const welcomeDiv = document.createElement("div");
@@ -78,24 +78,29 @@ invalidLogP.setAttribute("id", "red");
 invalidLogDiv.appendChild(invalidLogP);
 /************************************************************************/
 
-//Lägger till en eventlyssnare till inloggningsknappen som inväntar att användaren klickar på den 
+/****Lägger till en eventlyssnare till inloggningsknappen som inväntar att användaren klickar på den****/
 logInButton.addEventListener("click", function(){
+    //Om namnet och lösenordet är rätt så loggar vi in
     if(logInInputName.value === namn && logInInputPassword.value === lösenord){
         logInDisplay();
         
-        localStorage.setItem("isLoggedIn", logInInputName.value);
+        localStorage.setItem("isLoggedIn", logInInputName.value); //namnet i inputelementets ruta sparas
 
+        //Om vi inte har felmeddelandet gömd så gömmer vi den
         if(!invalidLogDiv.classList.contains("invalidLogDivHide")){
             invalidLogDiv.classList.add("invalidLogDivHide");
         }
     }
+    //Om vi försöker logga in med felaktiga inloggningsuppgifter så visar vi felmeddelandet
     else if(invalidLogDiv.classList.contains("invalidLogDivHide")){
         invalidLogDiv.classList.remove("invalidLogDivHide");
     }  
 });
+/*******************************************************************************************************/
 
-//Lägger till en eventlyssnare till utloggningsknappen som inväntar att användaren klickar på den 
+/****Lägger till en eventlyssnare till utloggningsknappen som inväntar att användaren klickar på den****/
 memberSignOutButton.addEventListener("click", function(){
+    //Raderna nedan återställer allt så att vi kommer tillbaka till "inloggssidan" igen
     welcomeDiv.classList.add("welcomeDivHide");
     memberDiv.classList.add("memberDivHide");
     logInDiv.classList.remove("logInDivHide");
@@ -103,14 +108,18 @@ memberSignOutButton.addEventListener("click", function(){
     logInInputName.value = "";
     logInInputPassword.value = "";
 });
+/*******************************************************************************************************/
 
+/**********Funktion för att visa sidans uttseende vid start**********/
 function logInDisplay(){
     logInDiv.classList.add("logInDivHide");
     welcomeDiv.classList.remove("welcomeDivHide");
     memberDiv.classList.remove("memberDivHide");
 }
+/********************************************************************/
 
+/*****Denna if:en kollar om vi är inloggade, och om vi är det så kör vi funktionen logInDisplay*****/
 if(localStorage.getItem("isLoggedIn") !== null){
     logInDisplay();
 }
-
+/***************************************************************************************************/
