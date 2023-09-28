@@ -1,6 +1,6 @@
 /*************************Inloggningsuppgifter*************************/
-const namn = "Bella"; //Skapar en konstant stringvariabel med användarnamnet
-const lösenord = "qwe123"; //Skapar en konstant stringvariabel med lösenordet
+const namn = "Bella"; 
+const lösenord = "qwe123"; 
 /**********************************************************************/
 
 /*************************Variabel till sista diven för placering av andra divs*************************/
@@ -8,14 +8,14 @@ const rulesDiv = document.getElementById("rules");
 /*******************************************************************************************************/
 
 /*************************************************Inloggningsdiven*************************************************/
-const logInDiv = document.createElement("div"); //Skapar åtkomst till diven som inloggninselementen ska ligga i
-logInDiv.setAttribute("class", "logInDiv"); //Ger denna div klassen logInDiv
-document.body.insertBefore(logInDiv, rulesDiv); //Lägger in den nya diven mellan de 2 andra
+const logInDiv = document.createElement("div"); 
+logInDiv.setAttribute("class", "logInDiv"); 
+document.body.insertBefore(logInDiv, rulesDiv); 
 
-const logInH2 = document.createElement("h2"); //Skapar variabel till en rubrik för inloggningsdiven
-const logInInputName = document.createElement("input"); //Skapar variabel till ett inputelement för namnet
-const logInInputPassword = document.createElement("input"); //Skapar variabel till ett inputelement för lösenordet
-const logInButton = document.createElement("button"); //Skapar variabel till inloggningsknappen
+const logInH2 = document.createElement("h2"); 
+const logInInputName = document.createElement("input"); 
+const logInInputPassword = document.createElement("input"); 
+const logInButton = document.createElement("button"); 
 
 //Sätter in inställningar på items i diven logInDiv så som, klass, text, placeholder.
 logInH2.innerHTML = "Logga In"; 
@@ -28,6 +28,7 @@ logInInputPassword.setAttribute("placeholder", "lösenord");
 logInInputPassword.setAttribute("class", "logInDiv-item");
 logInButton.innerHTML = "Logga in";
 logInButton.setAttribute("class", "logInDiv-item");
+logInButton.setAttribute("id", "green_back");
 
 //Lägger in items i logInDiv:en
 logInDiv.appendChild(logInH2);
@@ -60,6 +61,7 @@ const memberSignOutButton = document.createElement("button");
 memberH2.innerHTML = "Hej " + namn + "!";
 memberP.innerHTML = "Här kan du se ditt medlemskap";
 memberSignOutButton.innerHTML = "Logga ut";
+memberSignOutButton.setAttribute("id", "signOutBtn");
 
 memberDiv.appendChild(memberH2);
 memberDiv.appendChild(memberP);
@@ -100,7 +102,7 @@ logInButton.addEventListener("click", function(){
 
 /****Lägger till en eventlyssnare till utloggningsknappen som inväntar att användaren klickar på den****/
 memberSignOutButton.addEventListener("click", function(){
-    //Raderna nedan återställer allt så att vi kommer tillbaka till "inloggssidan" igen
+    //Återställer allt så att vi kommer tillbaka till "inloggssidan" igen
     welcomeDiv.classList.add("welcomeDivHide");
     memberDiv.classList.add("memberDivHide");
     logInDiv.classList.remove("logInDivHide");
