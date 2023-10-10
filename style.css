@@ -57,7 +57,7 @@ body {
 }
 
 .memberDivHide {
-    display: none;
+    display: none; /*Denna gör att den blir gömd och tar ej upp plats på sidan*/
 }
 
 .invalidLogDiv {
@@ -69,6 +69,10 @@ body {
 }
 
 .invalidLogDivHide {
+    visibility: hidden; /*Denna gör att den blir gömd men tar fortfarande samma plats på sidan*/
+}
+
+.invalidLogDivHideNone{
     display: none;
 }
 
